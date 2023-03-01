@@ -44,7 +44,7 @@
                                                id="username"
                                                placeholder="Enter the username here." required>
                                         <label for="username">Username</label>
-                                        <div class="invalid-feedback">Please fill in the username.</div>
+                                        <div class="feedback">Please fill in the username.</div>
                                     </div>
                                     <!--密码-->
                                     <div class="form-floating my-3">
@@ -54,7 +54,7 @@
                                                placeholder="Enter the password here." required>
                                         <label for="password">Password</label>
 
-                                        <div class="invalid-feedback">Please fill in the password.</div>
+                                        <div class="feedback">Please fill in the password.</div>
                                     </div>
 
                                     <!--确认密码-->
@@ -63,7 +63,7 @@
                                                class="form-control user-select-none shadow" id="confirmPassword"
                                                placeholder="Confirm the password here." required>
                                         <label for="confirmPassword">Confirm Password</label>
-                                        <div class="invalid-feedback">Please type the password again.</div>
+                                        <div class="feedback">Please type the password again.</div>
                                         <div class="form-text confirm-message"></div>
                                     </div>
 
@@ -74,7 +74,7 @@
                                                placeholder="Enter the phone number (10 length) here." required>
                                         <label for="phone">Phone</label>
 
-                                        <div class="invalid-feedback">Please fill in the phone.</div>
+                                        <div class="feedback">Please fill in the phone.</div>
                                     </div>
 
                                     <!--邮箱-->
@@ -84,7 +84,7 @@
                                                placeholder="Enter the email here." required>
                                         <label for="email">Email</label>
 
-                                        <div class="invalid-feedback">Please fill in the email like this: xxx@email.com
+                                        <div class="feedback">Please fill in the email like this: xxx@email.com
                                         </div>
                                     </div>
 
@@ -125,12 +125,12 @@
 
             if(username === "" || email === "" || phone === "") {
                 if(password===""){
-                    $('.confirm-message').text("Password Field cannot be empty").addClass('error-message');
+
                     document.getElementById("submitButton").disabled=true;
                     return false;
                 }
                 else if(confirm_password===""){
-                    $('.confirm-message').text("Confirm Password Field cannot be empty").addClass('error-message');
+                    $('.confirm-message').text("Confirm your password").addClass('error-message');
                     document.getElementById("submitButton").disabled=true;
                     return false;
                 }
@@ -153,12 +153,12 @@
 
             else  {
                 if(password===""){
-                    $('.confirm-message').text("Password Field cannot be empty").addClass('error-message');
+                    $('.confirm-message').text("Password cannot be empty").addClass('error-message');
                     document.getElementById("submitButton").disabled=true;
                     return false;
                 }
                 else if(confirm_password===""){
-                    $('.confirm-message').text("Confirm Password Field cannot be empty").addClass('error-message');
+                    $('.confirm-message').text("Confirm your password").addClass('error-message');
                     document.getElementById("submitButton").disabled=true;
                     return false;
                 }
