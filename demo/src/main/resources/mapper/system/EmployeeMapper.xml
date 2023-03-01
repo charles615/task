@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.system.mapper.EmployeeMapper">
+
+    <resultMap id="EmployeeMap" type="com.example.system.entity.Employee">
+        <id column="id" property="id"></id>
+    </resultMap>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO employee(username, password, phone, email
+        ) VALUES (
+                     #{username}, #{password}, #{phone}, #{email}
+                 )
+    </insert>
+
+    <select id="findByUsername" resultMap="EmployeeMap">
+        SELECT * FROM employee WHERE username = #{username}
+    </select>
+
+
+
+</mapper>
