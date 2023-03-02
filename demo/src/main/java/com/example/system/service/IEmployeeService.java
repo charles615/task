@@ -19,5 +19,10 @@ public interface IEmployeeService extends IService<Employee> {
 
     Employee login(String username, String password);
 
+    Employee getByUsername(String username);
 
+
+
+
+    Employee reset(String username, String phone, String email, String password);
 }

@@ -1,10 +1,10 @@
 package com.example.system.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.example.system.entity.Employee;
 import com.example.system.mapper.EmployeeMapper;
 import com.example.system.service.IEmployeeService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.system.service.exceptions.*;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,8 +35,8 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
         //check if the username is used when signing up.
 
 
-        if(account != null) {
-            throw new ServiceException("Username is used!");
+        if (account != null) {
+            throw new UsernameIsUsedException("Username is used!");
         }
 
 
@@ -53,6 +53,7 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
         newUser.setPhone(phone);
         newUser.setEmail(email);
         newUser.setUsername(username);
+        newUser.setSalt(salt);
 
         //检测数据是否被成功插入
         int result = employeeMapper.insert(newUser);
@@ -65,6 +66,68 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
 
     @Override
     public Employee login(String username, String password) {
-        return null;
+        Employee loginUser = employeeMapper.findByUsername(username);
+
+        if (loginUser == null) {
+            throw new UsernameNotFoundException("Username not found!");
+        }
+
+        String passwordInDB = loginUser.getPassword();
+        String salt = loginUser.getSalt();
+
+        String InputMd5Password = DigestUtils.md5DigestAsHex((password + salt).getBytes()).toUpperCase();
+
+        if (!InputMd5Password.equals(passwordInDB)) {
+            throw new PasswordIsNotCorrectException("Password is not correct.");
+        }
+
+        Employee employee = new Employee();
+        employee.setId(loginUser.getId());
+        employee.setUsername(loginUser.getUsername());
+        return employee;
     }
+
+    @Override
+    public Employee getByUsername(String username) {
+        return employeeMapper.findByUsername(username);
+    }
+
+    @Override
+    public Employee reset(String username, String phone, String email, String password) {
+
+        Employee account = employeeMapper.findByUsername(username);
+
+        //check if the username is used when signing up.
+
+
+        if (account == null) {
+            throw new UsernameIsEmptyException("Username doesn't exist.");
+        }
+
+        String phoneInDB = account.getPhone();
+        String emailInDB = account.getEmail();
+        String salt = account.getSalt();
+
+
+        if (!phone.equals(phoneInDB) || !email.equals(emailInDB)) {
+            throw new DetailsAreNotCorrectException("Details are not correct.");
+        }
+
+        String newMd5Password = DigestUtils.md5DigestAsHex((salt + password + salt).getBytes()).toUpperCase();
+
+        account.setPassword(newMd5Password);
+
+        Integer rows = employeeMapper.reset(account);
+        if (rows != 1) {
+            throw new ServiceException("Failed to register, system problem.");
+        }
+
+        return account;
+    }
+
+
+
+
 }
+
+

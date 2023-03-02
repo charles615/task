@@ -7,9 +7,9 @@
     </resultMap>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO employee(username, password, phone, email
+        INSERT INTO employee(username, password, phone, email, salt
         ) VALUES (
-                     #{username}, #{password}, #{phone}, #{email}
+                     #{username}, #{password}, #{phone}, #{email}, #{salt}
                  )
     </insert>
 
@@ -17,6 +17,9 @@
         SELECT * FROM employee WHERE username = #{username}
     </select>
 
+    <update id="reset">
+        UPDATE userinfo SET password = #{password} WHERE username = #{username}
+    </update>
 
 
 </mapper>

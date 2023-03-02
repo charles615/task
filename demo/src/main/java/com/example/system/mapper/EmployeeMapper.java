@@ -16,5 +16,7 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
     int insert(Employee employee);
     Employee findByUsername(String username);
 
+    Integer reset(Employee employee);
+
 
 }

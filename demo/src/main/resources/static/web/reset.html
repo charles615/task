@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register Page</title>
+    <title>Reset Page</title>
     <script src="../javascript/jquery-1.9.1.min.js"></script>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -25,7 +25,7 @@
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <!--标题和返回键-->
                     <h3 class="my-5 display-3 fw-bold ls-tight">
-                        For new sign up <br/>
+                        Reset password <br/>
                     </h3>
 
                 </div>
@@ -34,7 +34,8 @@
                     <div class="card">
                         <div class="card-body py-5 px-md-5">
                             <div class="container ">
-                                <form id="signForm" role="form" class="was-validated" novalidate>
+
+                                <form id="resetForm" role="form" class="was-validated" novalidate>
                                     <!--警告栏-->
                                     <div class="alert alert-dismissible fade" role="alert" style="display:none;">
                                         <span></span>
@@ -46,25 +47,6 @@
                                                placeholder="Enter the username here." required>
                                         <label for="username">Username</label>
 
-                                    </div>
-                                    <!--密码-->
-                                    <div class="form-floating my-3">
-                                        <input type="password" name="password"
-                                               class="form-control user-select-none shadow"
-                                               id="password"
-                                               placeholder="Enter the password here." required>
-                                        <label for="password">Password</label>
-
-                                    </div>
-
-                                    <!--确认密码-->
-                                    <div class="form-floating my-3">
-                                        <input type="password" name="confirmPassword"
-                                               class="form-control user-select-none shadow" id="confirmPassword"
-                                               placeholder="Confirm the password here." required>
-                                        <label for="confirmPassword">Confirm Password</label>
-
-                                        <div class="form-text confirm-message"></div>
                                     </div>
 
                                     <!--电话-->
@@ -83,15 +65,31 @@
                                                placeholder="Enter the email here." required>
                                         <label for="email">Email</label>
 
-                                        <div class="feedback">Please fill in the email like this: xxx@email.com
+                                        <hr>
+
+                                        <div class="feedback">Change the password by entering correct account information.
                                         </div>
                                     </div>
+
+                                    <hr>
+
+                                    <!--密码-->
+                                    <div class="form-floating my-3">
+                                        <input type="password" name="password"
+                                               class="form-control user-select-none shadow"
+                                               id="password"
+                                               placeholder="Enter the  new password here." required>
+                                        <label for="password">New Password</label>
+                                    </div>
+
+
+
 
                                     <!--登录按钮-->
                                     <div style="text-align:center">
                                         <input id="submitButton" type="button" class="btn btn-primary mt-5 w-50"
                                                disabled
-                                               value="Submit"/>
+                                               value="Reset"/>
                                     </div>
                                 </form>
                             </div>
@@ -108,7 +106,7 @@
         </div>
     </div>
 
-    <script src="../javascript/signup.js"></script>
+    <script src="../javascript/reset.js"></script>
 
 </body>
 </html>

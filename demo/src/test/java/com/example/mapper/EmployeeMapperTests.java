@@ -22,6 +22,7 @@ public class EmployeeMapperTests {
         employee.setPassword("1");
         employee.setPhone("1");
         employee.setEmail("1");
+        employee.setSalt("1");
         int result = employeeMapper.insert(employee);
         System.out.println(result);
     }

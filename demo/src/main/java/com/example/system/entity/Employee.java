@@ -32,6 +32,7 @@ public class Employee implements Serializable {
     private String phone;
 
     private String username;
+    private String salt;
 
     public Integer getId() {
         return id;
@@ -70,6 +71,14 @@ public class Employee implements Serializable {
         this.username = username;
     }
 
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -78,6 +87,7 @@ public class Employee implements Serializable {
             ", password=" + password +
             ", phone=" + phone +
             ", username=" + username +
+            ", salt=" + salt +
         "}";
     }
 }
