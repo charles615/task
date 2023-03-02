@@ -44,14 +44,14 @@ public class EmployeeMapperTests {
     //持久层数据库重置密码功能测试
     @Test
     public void reset() {
+        System.out.println("重置前数据为： " + employeeMapper.findByUsername("T1"));
         Employee employee = new Employee();
         employee.setUsername("T1");
         employee.setPassword("密码已修改");
-        employee.setPhone("1");
-        employee.setEmail("1");
         int result = employeeMapper.reset(employee);
         if(result == 1) {
             System.out.println("重置成功");
+            System.out.println("重置后数据为： " + employeeMapper.findByUsername("T1"));
         }else{
             System.out.println("插入失败");
         }

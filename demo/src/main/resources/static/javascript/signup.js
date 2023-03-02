@@ -14,55 +14,66 @@ $('#password, #confirmPassword, #username, #phone, #email').on('keyup', function
             document.getElementById("submitButton").disabled=true;
             return false;
         }
-        else if(confirm_password===""){
-            $('.confirm-message').text("Confirm your password").addClass('error-message');
+
+        if(password.length < 6) {
+            $('.confirm-message').text("At least 6 password numbers are required.").addClass('error-message');
             document.getElementById("submitButton").disabled=true;
             return false;
         }
-        else if(confirm_password===password)
-        {
-
-            $('.confirm-message').text('Password Match!').addClass('success-message');
-            bootstrapAlert("success", "Password Match!")
-            document.getElementById("submitButton").disabled = true;
-            return false;
-
-        }
-        else{
-            bootstrapAlert("warning","Password Doesn't Match!");
-            $('.confirm-message').text("Password Doesn't Match!").addClass('error-message');
-            document.getElementById("submitButton").disabled=true;
-            return false;
+        else {
+            if(confirm_password===""){
+                $('.confirm-message').text("Confirm your password").addClass('error-message');
+                document.getElementById("submitButton").disabled=true;
+                return false;
+            }
+            else if(confirm_password===password){
+                $('.confirm-message').text('Password Match!').addClass('success-message');
+                bootstrapAlert("success", "Password Match!")
+                document.getElementById("submitButton").disabled = true;
+                return false;
+            }
+            else{
+                bootstrapAlert("warning","Password Doesn't Match!");
+                $('.confirm-message').text("Password Doesn't Match!").addClass('error-message');
+                document.getElementById("submitButton").disabled=true;
+                return false;
+                }
         }
     }
 
     else  {
         if(password===""){
-            $('.confirm-message').text("Password cannot be empty").addClass('error-message');
-            document.getElementById("submitButton").disabled=true;
-            return false;
-        }
-        else if(confirm_password===""){
-            $('.confirm-message').text("Confirm your password").addClass('error-message');
-            document.getElementById("submitButton").disabled=true;
-            return false;
-        }
-        else if(confirm_password===password)
-        {
 
-            $('.confirm-message').text('Password Match!').addClass('success-message');
-            bootstrapAlert("success", "Password Match!")
-            document.getElementById("submitButton").disabled = false;
-            return true;
+                    document.getElementById("submitButton").disabled=true;
+                    return false;
+                }
 
-        }
-        else{
-            bootstrapAlert("warning","Password Doesn't Match!");
-            $('.confirm-message').text("Password Doesn't Match!").addClass('error-message');
-            document.getElementById("submitButton").disabled=true;
-            return false;
-        }
+                if(password.length < 6) {
+                    $('.confirm-message').text("At least 6 password numbers are required.").addClass('error-message');
+                    document.getElementById("submitButton").disabled=true;
+                    return false;
+                }
+                else {
+                    if(confirm_password===""){
+                        $('.confirm-message').text("Confirm your password").addClass('error-message');
+                        document.getElementById("submitButton").disabled=true;
+                        return false;
+                    }
+                    else if(confirm_password===password){
+                        $('.confirm-message').text('Password Match!').addClass('success-message');
+                        bootstrapAlert("success", "Password Match!")
+                        document.getElementById("submitButton").disabled = false;
+                        return false;
+                    }
+                    else{
+                        bootstrapAlert("warning","Password Doesn't Match!");
+                        $('.confirm-message').text("Password Doesn't Match!").addClass('error-message');
+                        document.getElementById("submitButton").disabled=true;
+                        return false;
+                        }
+                }
     }
+
 
 });
 

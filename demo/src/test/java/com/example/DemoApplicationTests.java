@@ -11,13 +11,10 @@ import java.util.List;
 @SpringBootTest
 class DemoApplicationTests {
 
-    @Resource
-    private EmployeeMapper employeeMapper;
 
     @Test
     void contextLoads() {
-        List<Employee> employees = employeeMapper.selectList(null);
-        employees.forEach(System.out::println);
+
     }
 
 }

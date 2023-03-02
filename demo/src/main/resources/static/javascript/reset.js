@@ -14,8 +14,19 @@ $('#password,#username, #phone, #email').on('keyup', function() {
     }
 
     else  {
-        document.getElementById("submitButton").disabled = false;
-        return true;
+
+       if(password.length < 6) {
+            $('.confirm-message').text("At least 6 password numbers are required.").addClass('error-message');
+            document.getElementById("submitButton").disabled=true;
+            return false;
+       } else {
+
+            document.getElementById("submitButton").disabled = false;
+            return true;
+       }
+
+
+
     }
 
 });
