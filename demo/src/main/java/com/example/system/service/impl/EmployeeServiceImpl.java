@@ -113,7 +113,7 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
             throw new DetailsAreNotCorrectException("Details are not correct.");
         }
 
-        String newMd5Password = DigestUtils.md5DigestAsHex((salt + password + salt).getBytes()).toUpperCase();
+        String newMd5Password = DigestUtils.md5DigestAsHex((password + salt).getBytes()).toUpperCase();
 
         account.setPassword(newMd5Password);
 

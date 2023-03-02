@@ -27,7 +27,7 @@ $("#submitButton").click(function () {
     $.ajax({
         url: "/employee/reset",
         type: "POST",
-        data: $("#signForm").serialize(),
+        data: $("#resetForm").serialize(),
         dataType: "JSON",
         success: function (json) {
             if (json.state == 200) {

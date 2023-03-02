@@ -18,7 +18,7 @@
     </select>
 
     <update id="reset">
-        UPDATE userinfo SET password = #{password} WHERE username = #{username}
+        UPDATE employee SET password = #{password} WHERE username = #{username}
     </update>
 
 

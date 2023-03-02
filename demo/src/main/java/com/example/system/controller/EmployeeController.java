@@ -3,18 +3,11 @@ package com.example.system.controller;
 import com.example.common.vo.JsonResult;
 import com.example.system.entity.Employee;
 import com.example.system.service.IEmployeeService;
-import com.example.system.service.exceptions.DetailsAreNotCorrectException;
-import com.example.system.service.exceptions.PasswordIsNotCorrectException;
-import com.example.system.service.exceptions.UsernameIsUsedException;
-import com.example.system.service.exceptions.UsernameNotFoundException;
-import kotlin.Result;
-import org.hibernate.service.spi.ServiceException;
+import com.example.system.service.exceptions.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpSession;
-import java.util.*;
+
 
 /**
  * <p>
@@ -61,14 +54,14 @@ public class EmployeeController {
 
 
     @RequestMapping("/reset")
-    public JsonResult<Employee> reset(String username, String password, String email, String phone) {
+    public JsonResult<Employee> reset(String username, String phone, String email, String password) {
         JsonResult<Employee> result = new JsonResult<>();
         try {
-            employeeService.reset(username, password, email, phone);
+            employeeService.reset(username, phone, email, password);
             result.setState(200);
         } catch (DetailsAreNotCorrectException e) {
             result.setState(4001);
-        } catch(UsernameNotFoundException e) {
+        } catch(UsernameIsEmptyException e) {
             result.setState(4002);
         }
         return result;
