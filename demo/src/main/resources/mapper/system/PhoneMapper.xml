@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.system.mapper.PhoneMapper">
+
+    <resultMap id="PhoneMap" type="com.example.system.entity.Phone">
+        <id column="id" property="id"></id>
+    </resultMap>
+
+
+    <select id="findList" resultMap="PhoneMap">
+        select * FROM phone where status = 1
+    </select>
+
+    <select id="findById" resultMap="PhoneMap">
+        SELECT * FROM phone WHERE id = #{id}
+    </select>
+
+
+</mapper>

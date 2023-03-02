@@ -21,15 +21,26 @@
 
 
             <div class="d-grid gap-2 d-md-flex justify-content-end">
-                <a class="btn btn-primary" href="/web/info">Account</a>
+                <a class="btn btn-primary" href="/web/index.html">Home</a>
             </div>
         </div>
     </nav>
 
+    <div class="container my-5">
+        <div class="row row-cols-auto gx-5 gy-3">
+            <div class="col" th:each="phone: ${phone}">
+                <div class="shadow card rounded h-100" style="width:18rem; height:30rem;">
+                    <img th:src="${phone.image}" class="card-img-top shadow rounded img-thumbnail artImage" th:alt="${phone.title}">
+                    <div class="card-body mt-3">
+                        <h5 class="card-title" th:text="${phone.title}">Title</h5>
+                        <p class="card-text" th:text="${phone.price}">Price</p>
+                        <a th:href="@{/web/detail/{id}(id=${phone.id})}" class="btn btn-primary" role="button">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-
-    <a class="btn btn-primary" href="/web/list">List</a>
 
 
 
