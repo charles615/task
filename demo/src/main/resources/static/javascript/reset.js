@@ -36,7 +36,7 @@ $('#password,#username, #phone, #email').on('keyup', function() {
 $("#submitButton").click(function () {
 
     $.ajax({
-        url: "/employee/reset",
+        url: "/user/reset",
         type: "POST",
         data: $("#resetForm").serialize(),
         dataType: "JSON",

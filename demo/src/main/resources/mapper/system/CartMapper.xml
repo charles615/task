@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.system.mapper.CartMapper">
+
+    <resultMap id="CartMap" type="com.example.system.entity.Cart">
+        <id column="id" property="id"></id>
+    </resultMap>
+
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+
+
+        INSERT INTO cart(userid, title, price, image
+        ) VALUES (
+                     #{userid}, #{title}, #{price}, #{image}
+                 )
+        select #{userid}, #{title} from cart
+
+        where not exists(select * from cart where userid=#{userid} and title = #{title});
+
+    </insert>
+
+    <select id="findListByUserId" resultMap="CartMap">
+        select * from collect where userid=#{userid};
+    </select>
+
+
+
+</mapper>

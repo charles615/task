@@ -1,7 +1,7 @@
 package com.example.system.controller;
 
-import com.example.system.entity.Employee;
-import com.example.system.service.IEmployeeService;
+import com.example.system.entity.User;
+import com.example.system.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 public class InfoController {
     @Autowired
     @Resource
-    private IEmployeeService employeeService;
+    private IUserService employeeService;
 
 
     protected final String getUsernameFromSession(HttpSession session) {
@@ -25,7 +25,7 @@ public class InfoController {
     @GetMapping("/web/info")
     public String list(Model model, HttpSession session) {
         String username = getUsernameFromSession(session);
-        Employee info = employeeService.getByUsername(username);
+        User info = employeeService.getByUsername(username);
         model.addAttribute("userInfo", info);
         return "info";
     }

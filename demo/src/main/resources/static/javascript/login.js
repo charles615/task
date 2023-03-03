@@ -29,7 +29,7 @@ $('#password, #username').on('keyup', function() {
 $("#submitButton").click(function () {
 
     $.ajax({
-        url: "/employee/login",
+        url: "/user/login",
         type: "POST",
         data: $("#loginForm").serialize(),
         dataType: "JSON",

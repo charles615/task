@@ -15,9 +15,9 @@ import java.io.Serializable;
  * @author Charles
  * @since 2023-03-01
  */
-@TableName("employee")
+@TableName("user")
 @Entity
-public class Employee implements Serializable {
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -81,7 +81,7 @@ public class Employee implements Serializable {
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "User{" +
             "id=" + id +
             ", email=" + email +
             ", password=" + password +

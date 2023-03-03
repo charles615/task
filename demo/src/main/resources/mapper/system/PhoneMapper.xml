@@ -11,6 +11,18 @@
         select * FROM phone where status = 1
     </select>
 
+    <select id="findList2" resultMap="PhoneMap">
+        select * FROM phone where status = 2
+    </select>
+
+    <select id="findList3" resultMap="PhoneMap">
+        select * FROM phone where status = 3
+    </select>
+
+    <select id="findList4" resultMap="PhoneMap">
+        select * FROM phone where status = 4
+    </select>
+
     <select id="findById" resultMap="PhoneMap">
         SELECT * FROM phone WHERE id = #{id}
     </select>

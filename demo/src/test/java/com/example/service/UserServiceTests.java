@@ -1,8 +1,8 @@
 package com.example.service;
 
-import com.example.system.entity.Employee;
-import com.example.system.mapper.EmployeeMapper;
-import com.example.system.service.IEmployeeService;
+import com.example.system.entity.User;
+import com.example.system.mapper.UserMapper;
+import com.example.system.service.IUserService;
 import org.hibernate.service.spi.ServiceException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,13 +14,13 @@ import javax.annotation.Resource;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class EmployeeServiceTests {
+public class UserServiceTests {
 
     @Autowired
-    private IEmployeeService employeeService;
+    private IUserService employeeService;
     @Resource
     @Autowired
-    private EmployeeMapper employeeMapper;
+    private UserMapper userMapper;
 
     //注册功能测试，请按顺序依次运行，否则会报错
 
@@ -28,14 +28,14 @@ public class EmployeeServiceTests {
     @Test
     public void signup() {
         try {
-            Employee employee = new Employee();
-            employee.setUsername("serviceTest");
-            employee.setPassword("1");
-            employee.setPhone("1");
-            employee.setEmail("1");
-            employeeService.signup(employee);
+            User user = new User();
+            user.setUsername("serviceTest");
+            user.setPassword("1");
+            user.setPhone("1");
+            user.setEmail("1");
+            employeeService.signup(user);
             System.out.println("Signup function is correct.");
-            System.out.println(employee);
+            System.out.println(user);
         } catch (ServiceException e) {
             System.out.println(e.getClass());
         }
@@ -58,10 +58,10 @@ public class EmployeeServiceTests {
     @Test
     public void rest() {
         try {
-            System.out.println("修改前： " + employeeMapper.findByUsername("ServiceTest"));
+            System.out.println("修改前： " + userMapper.findByUsername("ServiceTest"));
             employeeService.reset("ServiceTest", "1", "1", "2");
             System.out.println("Reset function is correct.");
-            System.out.println("修改后： " + employeeMapper.findByUsername("ServiceTest"));
+            System.out.println("修改后： " + userMapper.findByUsername("ServiceTest"));
 
         }catch (ServiceException e) {
             System.out.println(e.getClass());

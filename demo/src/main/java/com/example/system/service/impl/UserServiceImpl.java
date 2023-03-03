@@ -1,8 +1,8 @@
 package com.example.system.service.impl;
 
-import com.example.system.entity.Employee;
-import com.example.system.mapper.EmployeeMapper;
-import com.example.system.service.IEmployeeService;
+import com.example.system.entity.User;
+import com.example.system.mapper.UserMapper;
+import com.example.system.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.system.service.exceptions.*;
 import org.hibernate.service.spi.ServiceException;
@@ -21,16 +21,16 @@ import java.util.*;
  * @since 2023-03-01
  */
 @Service
-public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> implements IEmployeeService {
+public class UserServiceImpl implements IUserService {
 
     @Autowired
-    private EmployeeMapper employeeMapper;
+    private UserMapper userMapper;
 
 
     @Override
-    public void signup(Employee employee) {
-        String username = employee.getUsername();
-        Employee account = employeeMapper.findByUsername(username);
+    public void signup(User user) {
+        String username = user.getUsername();
+        User account = userMapper.findByUsername(username);
 
         //check if the username is used when signing up.
 
@@ -41,10 +41,10 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
 
 
         //账户密码MD5加密
-        String phone = employee.getPhone();
-        String email = employee.getEmail();
-        String password = employee.getPassword();
-        Employee newUser = new Employee();
+        String phone = user.getPhone();
+        String email = user.getEmail();
+        String password = user.getPassword();
+        User newUser = new User();
 
 
         String salt = UUID.randomUUID().toString().toUpperCase();
@@ -56,7 +56,7 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
         newUser.setSalt(salt);
 
         //检测数据是否被成功插入
-        int result = employeeMapper.insert(newUser);
+        int result = userMapper.insert(newUser);
         if (result != 1) {
             throw new ServiceException("System server error.");
         }
@@ -65,8 +65,8 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     }
 
     @Override
-    public Employee login(String username, String password) {
-        Employee loginUser = employeeMapper.findByUsername(username);
+    public User login(String username, String password) {
+        User loginUser = userMapper.findByUsername(username);
 
         if (loginUser == null) {
             throw new UsernameNotFoundException("Username not found!");
@@ -81,21 +81,21 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
             throw new PasswordIsNotCorrectException("Password is not correct.");
         }
 
-        Employee employee = new Employee();
-        employee.setId(loginUser.getId());
-        employee.setUsername(loginUser.getUsername());
-        return employee;
+        User user = new User();
+        user.setId(loginUser.getId());
+        user.setUsername(loginUser.getUsername());
+        return user;
     }
 
     @Override
-    public Employee getByUsername(String username) {
-        return employeeMapper.findByUsername(username);
+    public User getByUsername(String username) {
+        return userMapper.findByUsername(username);
     }
 
     @Override
-    public Employee reset(String username, String phone, String email, String password) {
+    public User reset(String username, String phone, String email, String password) {
 
-        Employee account = employeeMapper.findByUsername(username);
+        User account = userMapper.findByUsername(username);
 
         //check if the username is used when signing up.
 
@@ -117,7 +117,7 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
 
         account.setPassword(newMd5Password);
 
-        Integer rows = employeeMapper.reset(account);
+        Integer rows = userMapper.reset(account);
         if (rows != 1) {
             throw new ServiceException("Failed to register, system problem.");
         }

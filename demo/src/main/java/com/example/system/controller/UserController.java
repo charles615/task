@@ -1,11 +1,13 @@
 package com.example.system.controller;
 
 import com.example.common.vo.JsonResult;
-import com.example.system.entity.Employee;
-import com.example.system.service.IEmployeeService;
+import com.example.system.entity.User;
+import com.example.system.service.IUserService;
 import com.example.system.service.exceptions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
+
 import javax.servlet.http.HttpSession;
 
 
@@ -18,11 +20,11 @@ import javax.servlet.http.HttpSession;
  * @since 2023-03-01
  */
 @RestController
-@RequestMapping("/employee")
-public class EmployeeController {
+@RequestMapping("/user")
+public class UserController {
 
     @Autowired
-    private IEmployeeService employeeService;
+    private IUserService userService;
 
 
     protected final Integer getIdFromSession(HttpSession session) {
@@ -40,11 +42,11 @@ public class EmployeeController {
     }
 
     @RequestMapping("/signup")
-    public JsonResult<Void> signup(Employee employee) {
+    public JsonResult<Void> signup(User user) {
         JsonResult<Void> result = new JsonResult<>();
 
         try {
-            employeeService.signup(employee);
+            userService.signup(user);
             result.setState(200);
         } catch (UsernameIsUsedException e) {
             result.setState(2001);
@@ -54,10 +56,10 @@ public class EmployeeController {
 
 
     @RequestMapping("/reset")
-    public JsonResult<Employee> reset(String username, String phone, String email, String password) {
-        JsonResult<Employee> result = new JsonResult<>();
+    public JsonResult<User> reset(String username, String phone, String email, String password) {
+        JsonResult<User> result = new JsonResult<>();
         try {
-            employeeService.reset(username, phone, email, password);
+            userService.reset(username, phone, email, password);
             result.setState(200);
         } catch (DetailsAreNotCorrectException e) {
             result.setState(4001);
@@ -69,11 +71,11 @@ public class EmployeeController {
 
 
     @RequestMapping("/login")
-    public JsonResult<Employee> login(String username, String password, HttpSession session) {
+    public JsonResult<User> login(String username, String password, HttpSession session) {
 
-        JsonResult<Employee> result = new JsonResult<>();
+        JsonResult<User> result = new JsonResult<>();
         try {
-            Employee data = employeeService.login(username, password);
+            User data = userService.login(username, password);
             result.setState(200);
             session.setAttribute("id", data.getId());
             session.setAttribute("username", data.getUsername());
@@ -84,6 +86,9 @@ public class EmployeeController {
             }
             return result;
     }
+
+
+
 
 
 

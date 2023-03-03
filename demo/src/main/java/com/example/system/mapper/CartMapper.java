@@ -1,5 +1,6 @@
 package com.example.system.mapper;
 
+import com.example.system.entity.Cart;
 import com.example.system.entity.Phone;
 
 import java.util.List;
@@ -12,18 +13,11 @@ import java.util.List;
  * @author Charles
  * @since 2023-03-01
  */
-public interface PhoneMapper{
+public interface CartMapper {
 
-   List<Phone> findList();
-   List<Phone> findList2();
+   List<Cart> findListByUserId(Integer userid);
 
-   List<Phone> findList3();
-
-   List<Phone> findList4();
-
-
-
-   Phone findById(int id);
+   int save(Cart cart);
 
 
 

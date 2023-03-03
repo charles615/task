@@ -1,7 +1,5 @@
 package com.example.system.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.example.system.entity.Employee;
 import com.example.system.entity.Phone;
 
 import java.util.List;
@@ -17,6 +15,12 @@ import java.util.List;
 public interface IPhoneService{
 
     List<Phone> findList();
+
+    List<Phone> findList2();
+
+    List<Phone> findList3();
+
+    List<Phone> findList4();
 
     Phone findById(int id);
 

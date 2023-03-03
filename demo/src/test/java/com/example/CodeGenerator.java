@@ -13,7 +13,7 @@ public class CodeGenerator {
         String password = "1234";
         String moduleName = "system";
         String mapperLocation = "C:\\Users\\86176\\Desktop\\project\\demo\\src\\main\\resources\\mapper\\" + moduleName;
-        String tables = "t_employee";
+        String tables = "t_user";
 
 
 

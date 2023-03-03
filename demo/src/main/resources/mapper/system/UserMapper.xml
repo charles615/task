@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.system.mapper.EmployeeMapper">
+<mapper namespace="com.example.system.mapper.UserMapper">
 
-    <resultMap id="EmployeeMap" type="com.example.system.entity.Employee">
+    <resultMap id="UserMap" type="com.example.system.entity.User">
         <id column="id" property="id"></id>
     </resultMap>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO employee(username, password, phone, email, salt
+        INSERT INTO user(username, password, phone, email, salt
         ) VALUES (
                      #{username}, #{password}, #{phone}, #{email}, #{salt}
                  )
     </insert>
 
-    <select id="findByUsername" resultMap="EmployeeMap">
-        SELECT * FROM employee WHERE username = #{username}
+    <select id="findByUsername" resultMap="UserMap">
+        SELECT * FROM user WHERE username = #{username}
     </select>
 
     <update id="reset">
-        UPDATE employee SET password = #{password} WHERE username = #{username}
+        UPDATE user SET password = #{password} WHERE username = #{username}
     </update>
 
 

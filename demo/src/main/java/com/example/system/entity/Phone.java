@@ -33,9 +33,9 @@ public class Phone implements Serializable {
 
     private String image;
 
-    private String content;
-
     private Integer status;
+
+    private String content;
 
 
     public Integer getId() {
@@ -67,13 +67,6 @@ public class Phone implements Serializable {
         this.image = image;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 
     public Integer getStatus() {
         return status;
@@ -83,9 +76,17 @@ public class Phone implements Serializable {
         this.status = status;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     @Override
     public String toString() {
-        return "Employee{" +
+        return "Phone{" +
             "id=" + id +
             ", title=" + title +
             ", price=" + price +

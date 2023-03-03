@@ -82,7 +82,7 @@ $('#password, #confirmPassword, #username, #phone, #email').on('keyup', function
 $("#submitButton").click(function () {
 
     $.ajax({
-        url: "/employee/signup",
+        url: "/user/signup",
         type: "POST",
         data: $("#signForm").serialize(),
         dataType: "JSON",
