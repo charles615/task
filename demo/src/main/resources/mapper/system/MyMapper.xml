@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.system.mapper.MyMapper">
+
+    <resultMap id="MyMap" type="com.example.system.entity.My">
+        <id column="id" property="id"></id>
+    </resultMap>
+
+
+    <select id="findMyCart" resultMap="MyMap">
+        SELECT cart.*,phone.* From cart, phone WHERE cart.phone_id = phone.id AND cart.user_id = ${user_id};
+    </select>
+
+
+
+</mapper>

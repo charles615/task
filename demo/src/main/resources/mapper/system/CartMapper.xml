@@ -8,20 +8,15 @@
 
 
     <insert id="save" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
-
-
-        INSERT INTO cart(userid, title, price, image
-        ) VALUES (
-                     #{userid}, #{title}, #{price}, #{image}
-                 )
-        select #{userid}, #{title} from cart
-
-        where not exists(select * from cart where userid=#{userid} and title = #{title});
+        INSERT INTO cart (user_id, phone_id)
+        SELECT #{user_id},#{phone_id}
+        from DUAL
+        where not exists(select * from cart where user_id=#{user_id} and phone_id = #{phone_id});
 
     </insert>
 
     <select id="findListByUserId" resultMap="CartMap">
-        select * from collect where userid=#{userid};
+        select * from cart where userid=#{userid};
     </select>
 
 

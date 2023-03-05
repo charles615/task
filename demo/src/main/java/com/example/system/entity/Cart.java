@@ -54,8 +54,8 @@ public class Cart implements Serializable {
         return user_id;
     }
 
-    public void setUser_id(Integer status) {
-        this.user_id = status;
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 
 
