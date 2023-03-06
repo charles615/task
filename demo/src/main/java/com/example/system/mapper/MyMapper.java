@@ -18,6 +18,9 @@ public interface MyMapper {
    List<My> findMyCart(Integer user_id);
 
 
+   int clear(Integer user_id);
+
+
 
 
 

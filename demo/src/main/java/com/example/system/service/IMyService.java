@@ -16,5 +16,7 @@ import java.util.List;
 public interface IMyService {
 
     List<My> findMyCart(Integer user_id);
+    int clear(Integer user_id);
+
 
 }

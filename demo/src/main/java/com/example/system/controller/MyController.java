@@ -3,6 +3,7 @@ package com.example.system.controller;
 import com.example.system.entity.Cart;
 import com.example.system.entity.My;
 import com.example.system.service.IMyService;
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,6 +44,15 @@ public class MyController {
         List<My> Cart = myService.findMyCart(user_id);
         mod.addAttribute("collect", Cart);
         return "cartList";
+    }
+
+    @GetMapping("/web/checkout")
+    public String clear(Model mod, HttpSession session) {
+        Integer user_id = getIdFromSession(session);
+        int result = myService.clear(user_id);
+
+
+        return "checkout";
     }
 
 

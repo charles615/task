@@ -31,6 +31,11 @@ public class MyServiceImpl implements IMyService {
         return myMapper.findMyCart(user_id);
     }
 
+    @Override
+    public int clear(Integer user_id) {
+        return myMapper.clear(user_id);
+    }
+
 
 }
 

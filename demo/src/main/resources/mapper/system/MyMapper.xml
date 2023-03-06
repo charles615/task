@@ -11,6 +11,10 @@
         SELECT cart.*,phone.* From cart, phone WHERE cart.phone_id = phone.id AND cart.user_id = ${user_id};
     </select>
 
+    <delete id="clear">
+        DELETE FROM cart where user_id = ${user_id};
+    </delete>
+
 
 
 </mapper>
