@@ -15,9 +15,7 @@
 
     </insert>
 
-    <select id="findListByUserId" resultMap="CartMap">
-        select * from cart where userid=#{userid};
-    </select>
+
 
 
 

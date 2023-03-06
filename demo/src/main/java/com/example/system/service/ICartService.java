@@ -15,7 +15,6 @@ import java.util.List;
  */
 public interface ICartService {
 
-    List<Cart> findListByUserId(Integer user_id);
 
     int save(Cart cart);
 

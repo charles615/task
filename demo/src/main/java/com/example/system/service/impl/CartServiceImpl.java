@@ -26,10 +26,7 @@ public class CartServiceImpl implements ICartService {
     @Autowired
     private CartMapper cartMapper;
 
-    @Override
-    public List<Cart> findListByUserId(Integer user_id) {
-        return cartMapper.findListByUserId(user_id);
-    }
+
 
     @Override
     public int save(Cart cart) {

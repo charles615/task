@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface CartMapper {
 
-   List<Cart> findListByUserId(Integer userid);
+
 
    int save(Cart cart);
 
