@@ -28,7 +28,7 @@
 
 2.**You’d better to use an ORM tool for CRUD operation, also you can create a simple DB for data storage.**
 
-ORM框架使用：本项目使用了Mybatis-plus框架，和Hibernate框架。
+ORM框架使用：
 
 Mybatis-plus框架： 内置通用 Mapper、通用 Service，并可以自动注入基本CRUD
 
