@@ -83,9 +83,9 @@ Hibernate框架：可以通过实体类自动生成SQL表单
 1. 该项目所需要的数据库运行环境已经部署并上传在了Docker Hub, 因此秩序只需在安装有Docker的联网电脑上运行：
            
            
-```java
+
 Docker pull charles615615/mysql:8.0.31
-```java           
+        
            
            
 
@@ -94,12 +94,11 @@ Docker pull charles615615/mysql:8.0.31
 2. 运行以下命令 进入并启动Mysql镜像：
            
            
-```java
 Docker ps
 Docker exec -it mysql:8.0.31 dash
 mysql -uroot -p
-root
-```java
+root //mysql密码
+
            
            
 3.此时mysql环境已经配置好，接下来便可使用idea或Eclipse工具打开项目文件夹task，配置java环境1.8，后运行即可。
