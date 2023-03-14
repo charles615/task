@@ -25,7 +25,8 @@
 # 3. 项目信息
 
 
-## 1.项目一共构建了4个实体类（Cart, My, Phone, User), 其中有三个表单，Cart表中一共有三个属性（id, phone_id, user_id), Phone表中一共有6个属性（id, title, price, image, status, content), User表中一共有6个属性（id, email, password, phone, username, salt)
+## 1.数据库信息
+项目一共构建了4个实体类（Cart, My, Phone, User), 其中有三个表单，Cart表中一共有三个属性（id, phone_id, user_id), Phone表中一共有6个属性（id, title, price, image, status, content), User表中一共有6个属性（id, email, password, phone, username, salt)
 
 项目实现了对Cart和User表的增删改查。
 
@@ -73,14 +74,7 @@ Hibernate框架：可以通过实体类自动生成SQL表单
 <b>购物车页面：<b>
 
 ![屏幕截图(27)](https://user-images.githubusercontent.com/101779773/224900336-9bd9d925-d81b-4bb8-808e-a36039d26ea7.png)
-
-
-
-# 4. 项目运行方法
-
-1.创建本地Mysql数据库 name：task；端口：3306；username：root； 密码：1234
-
-2.运行文件夹中的**phone** sql脚本文件 生成数据存储表单，（其余表单会自动生成）。
-
-运行task文件夹中的jar包 demo-0.0.1-SNAPSHOT 或 用idea打开文件夹Run application。
-
+           
+           
+# 4.项目运行方法
+           
