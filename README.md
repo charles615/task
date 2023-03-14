@@ -107,7 +107,7 @@ Docker pull charles615615/mysql:8.0.31
 ```java Docker ps
 Docker exec -it charles615615/mysql:8.0.31 dash
 mysql -uroot -p
-root  ```java
+root  
 
 
            
