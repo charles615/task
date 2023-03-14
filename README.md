@@ -69,12 +69,14 @@ Hibernate框架：可以通过实体类自动生成SQL表单
 
 <b>用户信息页：<b>
 
-![屏幕截图(26)](https://user-images.githubusercontent.com/101779773/224900278-b72037da-dbd7-4aa2-9810-473ff0a8551d.png)
+![屏幕截图(26)](https://user-images.githubusercontent.com/101779773/224902213-1e32941a-0d43-44b4-979b-7fffa2a424bc.png)
+
 
 <b>购物车页面：<b>
 
-![屏幕截图(27)](https://user-images.githubusercontent.com/101779773/224900336-9bd9d925-d81b-4bb8-808e-a36039d26ea7.png)
-           
+![屏幕截图(27)](https://user-images.githubusercontent.com/101779773/224902267-2baca565-1965-40a6-846e-c7a413dc34f8.png)
+
+
            
 # 4.项目运行方法
            
