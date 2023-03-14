@@ -78,7 +78,17 @@ Hibernate框架：可以通过实体类自动生成SQL表单
 
 
            
-# 4.项目运行方法
+
+ # 4.项目测试
+本项目使用了Junit单元测试，三个实体类的Dao层Mapper方法进行了测试，以及User的服务层方法进行测试。
+           
+![屏幕截图(28)](https://user-images.githubusercontent.com/101779773/224905448-9d55a92d-e633-42de-a87b-1f60c3213b6a.png)
+
+
+           
+           
+           
+# 5.项目运行方法
 
 1. 该项目所需要的数据库运行环境已经部署并上传在了Docker Hub, 因此秩序只需在安装有Docker的联网电脑上运行：
            
@@ -94,10 +104,11 @@ Docker pull charles615615/mysql:8.0.31
 2. 运行以下命令 进入并启动Mysql镜像：
            
            
-Docker ps
-Docker exec -it mysql:8.0.31 dash
+```java Docker ps
+Docker exec -it charles615615/mysql:8.0.31 dash
 mysql -uroot -p
-root //mysql密码
+root  ```java
+
 
            
            
