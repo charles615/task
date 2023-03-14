@@ -1,12 +1,12 @@
-## Task
+# Task
 
-## 1. 项目介绍
+# 1. 项目介绍
 
 简易商城demo：
 实现了用户注册，登录，修改密码，查看用户信息的功能， （应用拦截器，白名单）
 实现了浏览商品，查看商品详细信息，商品添加添加购物车，清空（结账）购物的车功能。
 
-## 2. 技术使用
+# 2. 技术使用
 
 前端：Bootstrap
 
@@ -22,22 +22,24 @@
 
 
 
-## 3. 项目信息
+# 3. 项目信息
 
 
-1.项目一共构建了4个实体类（Cart, My, Phone, User), 其中有三个表单，Cart表中一共有三个属性（id, phone_id, user_id), Phone表中一共有6个属性（id, title, price, image, status, content), User表中一共有6个属性（id, email, password, phone, username, salt)
+## 1.项目一共构建了4个实体类（Cart, My, Phone, User), 其中有三个表单，Cart表中一共有三个属性（id, phone_id, user_id), Phone表中一共有6个属性（id, title, price, image, status, content), User表中一共有6个属性（id, email, password, phone, username, salt)
 
 项目实现了对Cart和User表的增删改查。
 
 
 
-2.ORM框架使用
+## 2.ORM框架使用
 
 Mybatis-plus框架： 内置通用 Mapper、通用 Service，并可以自动注入基本CRUD
 
 Hibernate框架：可以通过实体类自动生成SQL表单
 
-3.UI 界面
+
+
+## 3.UI 界面
 
 <b>用户登录界面：<b>
 
@@ -74,7 +76,7 @@ Hibernate框架：可以通过实体类自动生成SQL表单
 
 
 
-## 4. 项目运行方法
+# 4. 项目运行方法
 
 1.创建本地Mysql数据库 name：task；端口：3306；username：root； 密码：1234
 
