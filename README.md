@@ -2,52 +2,52 @@
 
 ## 1. 项目介绍
 
-简易商城demo, 实现了用户注册，登录，修改密码，查看用户信息功能； 实现了浏览商品，查看商品详细信息，添加购物车，清空（结账）购物车功能。
+简易商城demo：
+实现了用户注册，登录，修改密码，查看用户信息的功能， （应用拦截器，白名单）
+实现了浏览商品，查看商品详细信息，商品添加添加购物车，清空（结账）购物的车功能。
 
-## 2. 技术
+## 2. 技术使用
 
 前端：Bootstrap
 
-后端：springboot， mybatis-plus，Hibernate，MySql
+后端：springboot, mybatis-plus, Hibernate
+
+数据库：MySql
+
+版本和工具：IDEA
+           MySql 8.0.31 
+           Java 1.8
 
 
 
-版本：MySql 8.0.31； Java1.8;
+## 3. 项目信息
 
 
-
-## 3.
-
-1. **The API server should support CRUD operations for a list of employees/cars/records etc... The object must have a minimum of 5 to 6 attributes.** 
-
-项目一共构建了4个实体类（Cart, My, Phone, User), 其中有三个表单，Cart表中一共有三个属性（id, phone_id, user_id), Phone表中一共有6个属性（id, title, price, image, status, content), User表中一共有6个属性（id, email, password, phone, username, salt)
+1.项目一共构建了4个实体类（Cart, My, Phone, User), 其中有三个表单，Cart表中一共有三个属性（id, phone_id, user_id), Phone表中一共有6个属性（id, title, price, image, status, content), User表中一共有6个属性（id, email, password, phone, username, salt)
 
 项目实现了对Cart和User表的增删改查。
 
 
 
-2.**You’d better to use an ORM tool for CRUD operation, also you can create a simple DB for data storage.**
-
-ORM框架使用：
+2.ORM框架使用
 
 Mybatis-plus框架： 内置通用 Mapper、通用 Service，并可以自动注入基本CRUD
 
 Hibernate框架：可以通过实体类自动生成SQL表单
 
+3.UI 界面
 
+用户登录界面：
 
-数据库使用： Mysql数据库
+![屏幕截图(20)](https://user-images.githubusercontent.com/101779773/224899296-2d71e398-b7d5-4b57-ac53-bb15fd7ae152.png)
 
+用户注册界面：
 
+![屏幕截图(21)](https://user-images.githubusercontent.com/101779773/224899353-9ec8e9cf-e66e-4013-b64c-f110c0b123f4.png)
 
-3. **Write unit/component/integration and functional tests.**
+用户修改密码界面：
 
-使用了Junit 测试，为后端的mapper层和service层方法代码进行单元测试。
-
-
-
-
-
+![屏幕截图(22)](https://user-images.githubusercontent.com/101779773/224899443-5f8be9e7-e488-4a86-adbf-a298f3e284df.png)
 
 
 ## 4. 项目运行方法
